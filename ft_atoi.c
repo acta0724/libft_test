@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 19:07:33 by kiwasa            #+#    #+#             */
+/*   Updated: 2024/10/26 19:08:31 by kiwasa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <limits.h>
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	result;
 
 	i = 0;
@@ -17,7 +29,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while(str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (sign == 1 && result > (LONG_MAX - (str[i] - '0')) / 10)
 			return ((int)LONG_MAX);
@@ -28,8 +40,6 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(result * sign));
 }
-//オーバーフロー対策が必要
-
 
 // #include <stdio.h>
 // #include <stdlib.h>

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 19:13:09 by kiwasa            #+#    #+#             */
+/*   Updated: 2024/10/26 19:23:28 by kiwasa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
@@ -16,12 +28,10 @@ t_list *ft_lstnew(void *content)
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	if (lst == NULL || del == NULL)
-	{
-		return;
-	}
+		return ;
 	while (*lst != NULL)
 	{
 		tmp = (*lst)->next;
@@ -31,10 +41,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 }
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new;
-	t_list *tmp;
+	t_list	*new;
+	t_list	*tmp;
 
 	if (lst == NULL || f == NULL)
 	{

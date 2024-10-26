@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 19:12:17 by kiwasa            #+#    #+#             */
+/*   Updated: 2024/10/26 19:16:34 by kiwasa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char buf[12];
-	int i;
-	unsigned int num;
+	char			buf[12];
+	int				i;
+	unsigned int	num;
 
 	i = 12;
 	buf[--i] = '\0';
-	if(n >= 0)
+	if (n >= 0)
 		num = n;
 	else
 		num = -n;
-	while(1)
+	while (1)
 	{
 		buf[--i] = num % 10 + '0';
 		num /= 10;
-		if(num == 0)
-			break;
+		if (num == 0)
+			break ;
 	}
-	if(n < 0)
+	if (n < 0)
 		buf[--i] = '-';
 	return (ft_strdup(&buf[i]));
 }

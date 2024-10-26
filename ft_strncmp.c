@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 19:14:37 by kiwasa            #+#    #+#             */
+/*   Updated: 2024/10/26 19:30:52 by kiwasa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s1[i] && i < n)
@@ -23,7 +35,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 // 	printf("%d\n", ft_strncmp(s1, s2, 5));
 // 	printf("%d\n", ft_strncmp(s1, s2, 3));
 // 	printf("%d\n", ft_strncmp(s1, s2, 10));
-	
+
 // 	printf("%d\n", strncmp(s1, s2, 5));
 // 	printf("%d\n", strncmp(s1, s2, 3));
 // 	printf("%d\n", strncmp(s1, s2, 10));

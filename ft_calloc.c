@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 19:08:45 by kiwasa            #+#    #+#             */
+/*   Updated: 2024/10/26 19:09:46 by kiwasa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
 
-void *ft_calloc(size_t num, size_t size)
+void	*ft_calloc(size_t num, size_t size)
 {
 	size_t	total_size;
-	void *ptr;
+	void	*ptr;
 
 	total_size = num * size;
 	if (num != 0 && total_size / num != size)
-		return NULL;
+		return (NULL);
 	ptr = malloc(total_size);
 	if (ptr == NULL)
-		return NULL;
+		return (NULL);
 	ft_bzero(ptr, total_size);
-	return ptr;
+	return (ptr);
 }
 
 // #include <stdio.h>
