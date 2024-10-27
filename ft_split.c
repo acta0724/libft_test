@@ -6,12 +6,13 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:14:01 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/26 19:27:31 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 16:22:31 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
+#include "libft.h"
 
 static int	ft_count_words(char const *s, char c)
 {
@@ -43,9 +44,7 @@ static char	*allocate_and_copy_word(char const *s, char c)
 	len = 0;
 	while (s[len] != '\0' && s[len] != c)
 		len++;
-	word = (char *)malloc(len + 1);
-	if (word == NULL)
-		return (NULL);
+	word = (char *)ft_calloc(len + 1, sizeof(char));
 	i = 0;
 	while (i < len)
 	{
@@ -56,6 +55,20 @@ static char	*allocate_and_copy_word(char const *s, char c)
 	return (word);
 }
 
+static char	**free_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i] != NULL)
+	{
+		free(strs[i]);
+		i ++;
+	}
+	free(strs);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
@@ -64,9 +77,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	strs = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (strs == NULL)
-		return (NULL);
+	strs = (char **)ft_calloc(ft_count_words(s, c) + 1, sizeof(char *));
 	i = 0;
 	j = 0;
 	while (s[i] != '\0')
@@ -75,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		{
 			strs[j] = allocate_and_copy_word(s + i, c);
 			if (strs[j] == NULL)
-				return (NULL);
+				return (free_strs(strs));
 			j++;
 			while (s[i] != '\0' && s[i] != c)
 				i++;

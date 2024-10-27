@@ -6,7 +6,7 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:08:45 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/26 19:09:46 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 15:47:20 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	size_t	total_size;
 	void	*ptr;
 
-	total_size = num * size;
-	if (num != 0 && total_size / num != size)
+	if (num == 0 || size == 0)
+	{
+		ptr = malloc(0);
+		return ((void *)ptr);
+	}
+	if (num != 0 && (((num * size) / num) != size))
 		return (NULL);
-	ptr = malloc(total_size);
+	ptr = malloc(num * size);
 	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, total_size);
+	ft_bzero(ptr, num * size);
 	return (ptr);
 }
 

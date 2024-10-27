@@ -6,12 +6,12 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:12:27 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/26 19:20:22 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 15:49:12 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -26,4 +26,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(*lst);
 		*lst = tmp;
 	}
+	*lst = NULL;
 }
