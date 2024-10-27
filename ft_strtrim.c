@@ -6,7 +6,7 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:14:49 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/26 19:14:50 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 17:43:40 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	size_t	i;
 
-	if (s1 == NULL || set == NULL)
-		return (NULL);
 	len = ft_strlen(s1);
 	i = 0;
 	while (s1[i] != '\0' && ft_strchr(set, s1[i]) != 0)

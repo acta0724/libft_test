@@ -6,7 +6,7 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:14:52 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/27 16:22:50 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 18:06:53 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	if (len > s_len - start)
 		len = s_len - start;
-	str = (char *)calloc(len + 1, sizeof(char));
+	str = (char *)ft_calloc(len + 1, sizeof(char));
 	i = 0;
 	while (i < len && s[start + i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: kiwasa <kiwasa@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:14:46 by kiwasa            #+#    #+#             */
-/*   Updated: 2024/10/26 19:31:21 by kiwasa           ###   ########.fr       */
+/*   Updated: 2024/10/27 17:40:57 by kiwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i--;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
 	return (NULL);
 }
 
